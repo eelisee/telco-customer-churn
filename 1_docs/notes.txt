@@ -3,3 +3,15 @@
 2. feature engineering (understanding the data)
 - e.g. combining two features into one (proportion, combining correlated variables)
 3. dimensionality reduction (PCA)
+
+
+missing values and nan
+
+split data, convert data types, encoding categorical variables
+
+feature engineering and understanding data
+
+
+
+create three typical customers
+dashboard
