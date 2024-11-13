@@ -1,0 +1,17 @@
+1. data cleaning (compare entries with missing values, interpolate or something, )
+1.2 unbalanced distributions, converting data types
+2. feature engineering (understanding the data)
+- e.g. combining two features into one (proportion, combining correlated variables)
+3. dimensionality reduction (PCA)
+
+
+missing values and nan
+
+split data, convert data types, encoding categorical variables
+
+feature engineering and understanding data
+
+
+
+create three typical customers
+dashboard
