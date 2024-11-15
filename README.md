@@ -10,6 +10,8 @@ not yet done:
 5_data exploration
 7_handling outliers
 
+delete: other repos
+
 questions:
 - should we convert missing values to 'Not available' or set to e.g. 0?
 - After one-hot-encoding we get the encoding into 'true' and 'false', should we encode it into binary 0 and 1 to fit the other representations?
