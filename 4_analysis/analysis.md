@@ -44,3 +44,9 @@ Each algorithm is implemented and evaluated in a separate Jupyter Notebook:
 - **9_XGBoost.ipynb**
 
 This structured analysis allows us to compare the strengths and weaknesses of various approaches and select the most suitable model for customer churn prediction.
+
+
+
+We did some hyperparameter optimization. I. e.
+
+For **K-Nearest Neighbors (KNN)**, we tested values of k ranging from 1 to 20. The final model was selected based on the value of k that yielded the highest accuracy.
