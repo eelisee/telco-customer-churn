@@ -11,6 +11,7 @@ not yet done:
 7_handling outliers
 
 missing: total evaluation, hyperparameter tuning, performance on k fold cross validation
+oversampling, undersampling, grid search, pca
 
 questions:
 - should we convert missing values to 'Not available' or set to e.g. 0?
