@@ -10,7 +10,7 @@ not yet done:
 5_data exploration
 7_handling outliers
 
-delete: other repos
+missing: total evaluation, hyperparameter tuning, performance on k fold cross validation
 
 questions:
 - should we convert missing values to 'Not available' or set to e.g. 0?
