@@ -4,8 +4,8 @@ In this phase, we explore various machine learning algorithms to predict custome
 
 ## Algorithms and Their Applications
 
-1. **Naive Bayes**  
-   Naive Bayes predicts customer churn by treating features (e.g., customer behavior, demographics) as independent. The model calculates the probability of churn based on these features using Bayes' theorem.
+1. **Gaussian Naive Bayes**  
+   Gaussian Naive Bayes predicts customer churn by treating features (e.g., customer behavior, demographics) as independent. The model calculates the probability of churn based on these features using Bayes' theorem and implying that all features are normally distributed.
 
 2. **Logistic Regression**  
    Logistic Regression is a binary classification model often used for churn prediction. It estimates the likelihood of churn based on features like subscription length, number of complaints, and usage frequency.
@@ -25,23 +25,36 @@ In this phase, we explore various machine learning algorithms to predict custome
 7. **Multilayer Perceptron (MLP)**  
    MLP, a type of artificial neural network, is suited for high-dimensional data. It captures complex, non-linear patterns to predict churn based on multiple layers of interconnected neurons.
 
-8. **Artificial Neural Networks (ANN)**  
-   ANNs model intricate relationships between features (e.g., demographics, usage patterns) and churn. They are effective at identifying non-linear dependencies that traditional models might overlook.
+(8. **Artificial Neural Networks (ANN)**)
+   ANNs model intricate relationships between features (e.g., demographics, usage patterns) and churn. They are effective at identifying non-linear dependencies that traditional models might overlook. In our Project Proposal we have stated, that we wanted to implement this method but since ANN is essentially a logistic regression, we will not be implementing it here again. Instead we decided on implementing XGBoost.
 
-9. **XGBoost**  
+Additionally, to the methods stated in our project proposal, we are also going to try out XGBoost, Nearest Centroid and Multinomial Naive Bayes. We will evaluate Multinomial Naive Bayes by itself as well as a combined version of both Multinomial and Gaussian Naive Bayes.
+
+8. **XGBoost**  
    XGBoost, an advanced gradient boosting algorithm, is employed to enhance churn prediction. It uses a series of weak learners, optimizing for speed and performance, and effectively handles non-linear patterns and interactions.
+   
+9. **Nearest Centroid**  
+   Nearest Centroid classifies churn by calculating the centroid (mean) of each class in the feature space and assigning new instances to the class with the nearest centroid. This method is simple and effective for datasets where classes are well-separated.
+
+10. **Multinomial Naive Bayes**  
+      Multinomial Naive Bayes is particularly suited for discrete data, such as word counts in text classification. For churn prediction, it models the probability of different feature values occurring in each class, assuming features are conditionally independent given the class.
+
+11. **Combination of Naive Bayes Methods**  
+      This approach combines Multinomial and Gaussian Naive Bayes to leverage the strengths of both methods. Multinomial Naive Bayes handles discrete features, while Gaussian Naive Bayes is used for continuous features. The combined model aims to improve prediction accuracy by addressing different types of data within the same framework.
 
 ## Analysis Workflow
 Each algorithm is implemented and evaluated in a separate Jupyter Notebook:
-- **1_Naive_Bayes.ipynb**
+- **1_Gaussian_Naive_Bayes.ipynb**
 - **2_Logistic_Regression.ipynb**
 - **3_KNN.ipynb**
 - **4_Decision_Trees.ipynb**
 - **5_Random_Forest.ipynb**
 - **6_SVM.ipynb**
 - **7_MLP.ipynb**
-- **8_ANN.ipynb**
-- **9_XGBoost.ipynb**
+- **8_XGBoost.ipynb**
+- **9_Nearest_Centroid.ipynb**
+- **10_Multinomial_Naive_Bayes**
+- **11_Combination_Naive_Bayes**
 
 This structured analysis allows us to compare the strengths and weaknesses of various approaches and select the most suitable model for customer churn prediction.
 
