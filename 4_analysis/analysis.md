@@ -39,8 +39,6 @@ Additionally, to the methods stated in our project proposal, we are also going t
 10. **Multinomial Naive Bayes**  
       Multinomial Naive Bayes is particularly suited for discrete data, such as word counts in text classification. For churn prediction, it models the probability of different feature values occurring in each class, assuming features are conditionally independent given the class.
 
-11. **Combination of Naive Bayes Methods**  
-      This approach combines Multinomial and Gaussian Naive Bayes to leverage the strengths of both methods. Multinomial Naive Bayes handles discrete features, while Gaussian Naive Bayes is used for continuous features. The combined model aims to improve prediction accuracy by addressing different types of data within the same framework.
 
 ## Analysis Workflow
 Each algorithm is implemented and evaluated in a separate Jupyter Notebook:
@@ -54,12 +52,17 @@ Each algorithm is implemented and evaluated in a separate Jupyter Notebook:
 - **8_XGBoost.ipynb**
 - **9_Nearest_Centroid.ipynb**
 - **10_Multinomial_Naive_Bayes**
-- **11_Combination_Naive_Bayes**
 
 This structured analysis allows us to compare the strengths and weaknesses of various approaches and select the most suitable model for customer churn prediction.
-
-
 
 We did some hyperparameter optimization. I. e.
 
 For **K-Nearest Neighbors (KNN)**, we tested values of k ranging from 1 to 20. The final model was selected based on the value of k that yielded the highest accuracy.
+
+And for **GNB**, we used GridSearch to optimize the hyperparamter. We also used GridSearch for **MNB** hyperparameter optimization.
+
+For **Support Vector Machines (SVM)**, we used a pipeline with `StandardScaler` and `SVC`, and performed hyperparameter optimization using `RandomizedSearchCV` with a search space for `C`, `kernel`, and `gamma` parameters.
+
+We applied cross-validation to each method to ensure the robustness and generalizability of our models. By partitioning the dataset into multiple folds, we trained and validated each model on different subsets of the data, thereby reducing the risk of overfitting and providing a more reliable estimate of model performance.
+
+For each algorithm, we saved two output files: one for the cross-validation results on the training set and one for the predictions on the unseen data. Both files contain scores for accuracy, precision, recall, F1, and ROC AUC. This approach ensures that we have a comprehensive evaluation of each model's performance on both the training and test datasets.
