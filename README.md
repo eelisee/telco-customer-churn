@@ -14,8 +14,17 @@ missing: total evaluation, hyperparameter tuning, performance on k fold cross va
 oversampling, undersampling, grid search, pca
 
 questions:
-- should we convert missing values to 'Not available' or set to e.g. 0?
-- After one-hot-encoding we get the encoding into 'true' and 'false', should we encode it into binary 0 and 1 to fit the other representations?
+- should we convert missing values to 'Not available' or set to e.g. 0? - no
+- After one-hot-encoding we get the encoding into 'true' and 'false', should we encode it into binary 0 and 1 to fit the other representations? yes
 - what to do with not binary created features in feature engineering? encode them into 0, 1 or leave them like that?
-- Do 116 features need PCA?
-- different splitting methods or just one?
+- Do 116 features need PCA? - no
+- different splitting methods or just one? - one
+
+
+
+0. reason in train test split that we have done preprocessing that is correct to do on train and dest combined (bc e.g. scaling applied later)
+1.1 correlation matrix in preprocessing
+1. Outlier run for all models + reasoning why maybe not included only non-churn? + evaluation (do worse models get better?)
+2. section for models includes hyperparameter tuning (what we did and tried, what worked)
+3. evaluation: f1 score only, reason why e.g. accuracy is misleading
+4. report table for prediction included, reason in evaluation on all models, not only best. (why we get those results), best only in last line.
