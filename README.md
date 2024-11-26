@@ -21,8 +21,6 @@ questions:
 - different splitting methods or just one? - one
 
 
-
-0. reason in train test split that we have done preprocessing that is correct to do on train and dest combined (bc e.g. scaling applied later)
 1.1 correlation matrix in preprocessing
 1. Outlier run for all models + reasoning why maybe not included only non-churn? + evaluation (do worse models get better?)
 2. section for models includes hyperparameter tuning (what we did and tried, what worked)
