@@ -2,27 +2,98 @@
 
 In this project of the IE500 Data Mining Course at the University of Mannheim, we are analysing the Telco Customer Churn dataset.
 
-Website of the Data
-https://accelerator.ca.analytics.ibm.com/bi/?perspective=authoring&pathRef=.public_folders%2FIBM%2BAccelerator%2BCatalog%2FContent%2FDAT00148&id=i9710CF25EF75468D95FFFC7D57D45204&objRef=i9710CF25EF75468D95FFFC7D57D45204&action=run&format=HTML&cmPropStr=%7B%22id%22%3A%22i9710CF25EF75468D95FFFC7D57D45204%22%2C%22type%22%3A%22reportView%22%2C%22defaultName%22%3A%22DAT00148%22%2C%22permissions%22%3A%5B%22execute%22%2C%22read%22%2C%22traverse%22%5D%7D
+## Project Overview
 
-notes:
-not yet done:
-5_data exploration
-7_handling outliers
+This project involves analyzing the Telco Customer Churn dataset to understand customer behavior and identify factors influencing churn. The analysis is structured into several steps, each documented in separate Jupyter notebooks.
 
-missing: total evaluation, hyperparameter tuning, performance on k fold cross validation
-oversampling, undersampling, grid search, pca
+## Steps in the Preprocessing
 
-questions:
-- should we convert missing values to 'Not available' or set to e.g. 0? - no
-- After one-hot-encoding we get the encoding into 'true' and 'false', should we encode it into binary 0 and 1 to fit the other representations? yes
-- what to do with not binary created features in feature engineering? encode them into 0, 1 or leave them like that?
-- Do 116 features need PCA? - no
-- different splitting methods or just one? - one
+### 1. Data Loading
+We begin by loading the datasets into the workspace. This includes both the Kaggle dataset and additional datasets from IBM. The data is read from Excel files and saved as CSV files for easier manipulation.
+
+### 2. Dataset Integration
+Next, we combine the relevant datasets into a single, unified dataset. This step ensures that all necessary information is consolidated for subsequent analysis.
+
+### 3. Handling Missing Values
+We identify and address missing values in the dataset to ensure data integrity. This step includes analyzing the extent of missing data and applying appropriate techniques to handle it.
+
+### 4. Data Type Conversion
+We convert data columns to appropriate data types to optimize memory usage and prepare for feature engineering. This step ensures consistency across all columns.
+
+### 5. Data Exploration
+Initial exploratory data analysis (EDA) is performed to understand the dataset's structure and characteristics. Key features are visualized to gain insights into the data.
+
+### 6. Feature Engineering
+New features are created from the existing data to enhance model performance and capture additional insights. This includes transformations and derived features.
+
+### 7. Dataset Splitting
+The dataset is split into training and testing subsets to prepare for model development and evaluation. This step ensures reproducibility and robust performance metrics.
+
+### 8. Outlier Detection
+Outliers in the dataset are identified and addressed to ensure they do not negatively impact the analysis or models.
+
+### 9. Clustering Customers
+We identify the most common customer profiles via clustering to understand different customer segments better.
+
+### 10. Model Evaluation
+Finally, we evaluate the performance of our models using various metrics and save the evaluation results for further analysis.
+
+## Model Predictino
+
+### Models Analyzed
+
+In the analysis phase, we explored several machine learning models to predict customer churn. Each model was evaluated based on its performance metrics, such as accuracy, precision, recall, and F1-score. The models analyzed include:
+
+1. **Logistic Regression**
+    - A baseline model to understand the relationship between features and the probability of churn.
+    - Easy to interpret and implement.
+
+2. **Decision Tree**
+    - A non-linear model that captures complex interactions between features.
+    - Provides a visual representation of decision rules.
+
+3. **Random Forest**
+    - An ensemble method that combines multiple decision trees to improve performance.
+    - Reduces overfitting and increases accuracy.
+
+4. **Support Vector Machine (SVM)**
+    - A powerful classifier that finds the optimal hyperplane to separate classes.
+    - Effective in high-dimensional spaces.
+
+5. **K-Nearest Neighbors (KNN)**
+    - A simple, instance-based learning algorithm.
+    - Classifies a sample based on the majority class of its nearest neighbors.
+
+6. **Gradient Boosting Machine (GBM)**
+    - An ensemble technique that builds models sequentially to correct errors of previous models.
+    - Known for high predictive accuracy.
+
+7. **XGBoost**
+    - An optimized implementation of gradient boosting.
+    - Provides parallel tree boosting and is highly efficient.
+
+8. **Neural Networks**
+    - Deep learning models that capture complex patterns in the data.
+    - Consists of multiple layers to learn hierarchical representations.
+
+Each model was tuned and validated using cross-validation techniques to ensure robust performance. The results were compared to select the best-performing model for predicting customer churn.
 
 
-1.1 correlation matrix in preprocessing
-1. Outlier run for all models + reasoning why maybe not included only non-churn? + evaluation (do worse models get better?)
-2. section for models includes hyperparameter tuning (what we did and tried, what worked)
-3. evaluation: f1 score only, reason why e.g. accuracy is misleading
-4. report table for prediction included, reason in evaluation on all models, not only best. (why we get those results), best only in last line.
+## Model Evaluation and Findings
+
+### Evaluation Metrics
+
+To evaluate the performance of each model, we used the following metrics:
+- **Accuracy**: The proportion of correctly classified instances.
+- **Precision**: The proportion of true positive predictions among all positive predictions.
+- **Recall**: The proportion of true positive predictions among all actual positives.
+- **F1-Score**: The harmonic mean of precision and recall, providing a balance between the two.
+
+### Best Model
+
+After evaluating all the models, **XGBoost** stood out as the best performer. This model consistently achieved the highest scores across various metrics such as accuracy, precision, recall, and F1-score. The reasons for its superior performance include its advanced implementation of gradient boosting, which effectively combines the predictions of multiple weak learners, and its ability to handle large datasets efficiently. These characteristics make XGBoost particularly well-suited for predicting customer churn in this project.
+
+
+## Dashboard
+
+The dashboard provides an interactive visualization of the analysis results. It allows users to explore key metrics, such as churn rates and customer segments, through various charts and graphs. Users can filter data, view model performance, and gain insights into factors influencing customer churn.
