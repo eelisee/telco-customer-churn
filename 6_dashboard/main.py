@@ -1,22 +1,22 @@
 import dash
 from dash import dcc, html, Input, Output, State
 import pandas as pd
-import xgboost as xgb
 import plotly.express as px
 import plotly.graph_objects as go
 import os
 import dash_bootstrap_components as dbc
+import joblib
+import pickle
 
 # Load your data and model
 X_test = pd.read_csv('2_data/X_test_dashboard.csv')
 y_test = pd.read_csv('2_data/y_test_dashboard.csv')
 data = pd.merge(X_test, y_test, on='Customer ID')
 
-model = xgb.Booster()
-model_path = './6_dashboard/xgboost_model.json'
-if not os.path.exists(model_path):
-    raise FileNotFoundError(f"Model file not found: {model_path}")
-model.load_model(model_path)
+# Load the Decision Tree model
+model_path = './6_dashboard/decisiontree_model.pkl'
+with open(model_path, 'rb') as f:
+    model = pickle.load(f)
 
 # Initialize the Dash app
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
@@ -50,8 +50,8 @@ def update_dashboard(n_clicks, customer_id):
             return "Customer ID not found", "", "", ""
         
         # Predict churn
-        dmatrix = xgb.DMatrix(customer_data.drop(columns=['Customer ID', 'Churn']))
-        churn_prob = model.predict(dmatrix)[0]
+        customer_features = customer_data.drop(columns=['Customer ID', 'Churn']).values
+        churn_prob = model.predict_proba(customer_features)[0][1]
         churn_prediction = "Likely to Churn" if churn_prob > 0.5 else "Not Likely to Churn"
         
         # Feature differences
